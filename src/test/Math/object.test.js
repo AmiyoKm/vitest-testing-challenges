@@ -71,8 +71,8 @@ describe("Object Utils",()=>{
                 }
             })).toStrictEqual({
                 a: 1,
-                c: 2,
-                e: 3
+                "b.c": 2,
+                "b.d.e": 3
               })
         })
         it("handles objects with multiple levels of nesting and special characters in keys",()=>{
@@ -86,8 +86,8 @@ describe("Object Utils",()=>{
                 }
             })).toStrictEqual({
                 a: 1,
-                c: 2,
-                e: 3
+                "b.c": 2,
+                "b.d.e": 3
               })
         })
        

@@ -7,13 +7,20 @@ export const deepClone =( obj1)=>{
     const clone = {...obj1}
     return clone
 }
-export const flattenObject = (obj, result = {}, parentKey = '') => {
-    for (let key in obj) {
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
-            flattenObject(obj[key], result); // No concatenation for keys
-        } else {
-            result[key] = obj[key]; // Store only the unique key
+export const flattenObject = (obj, parentKey = '') => {
+    let result = {}
+    for (const key in obj){
+        const newKey = parentKey ? `${parentKey}.${key}` : key
+
+        if(obj[key] && typeof obj[key] === 'object'){
+         result =  { ...result , ...flattenObject(obj[key] , newKey)}
+        }
+        else {
+            result[newKey] = obj[key]
         }
     }
+
     return result;
 };
+
+console.log(flattenObject({ a: 3 , b:{c: 1 , d: 2}}));
