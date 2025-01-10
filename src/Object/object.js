@@ -23,4 +23,4 @@ export const flattenObject = (obj, parentKey = '') => {
     return result;
 };
 
-console.log(flattenObject({ a: 3 , b:{c: 1 , d: 2}}));
+

@@ -5,6 +5,7 @@ describe("String", () => {
   suite("Reversed String", () => {
     it("checks for a reversed string", () => {
       expect(reversedString("amiyo")).toBe("oyima");
+      expect(reversedString("amiyo")).toContain("ma")
     });
     it("works with spaces and special chars", () => {
       expect(reversedString("amiyo kumar")).toBe("ramuk oyima");
@@ -13,6 +14,7 @@ describe("String", () => {
   suite("Capitalize Word", () => {
     it("capitalizes a word", () => {
       expect(capitalizeWords("amiyo")).toBe("AMIYO");
+      expect(capitalizeWords("amiyo")).toMatch(/MIY/)
     });
     it("works with space",()=>{
       expect(capitalizeWords("amiyo kumar")).toBe("AMIYO KUMAR");

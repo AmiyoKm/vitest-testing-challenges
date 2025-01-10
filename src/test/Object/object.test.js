@@ -46,6 +46,10 @@ describe("Object Utils",()=>{
             })).toStrictEqual({
                 name : "amiyo", job : 'student'
             })
+            expect(deepClone({
+                name : "amiyo", job : 'student'
+            })).toHaveProperty("name")
+            
         })
         it("works with nested objects and arrays inside the object",()=>{
             expect(deepClone({
@@ -57,6 +61,11 @@ describe("Object Utils",()=>{
                     name : "some faculty"
                 }
             })
+            expect((deepClone({
+                name : "amiyo", job : 'student' , courses : ['compiler' , 'software' ,'graphics'] , faculty :{
+                    name : "some faculty"
+                }
+            })).name).toBeDefined()
         })
     })
     suite("Flatten Clone",()=>{
